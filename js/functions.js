@@ -30,10 +30,10 @@ console.log(helloMessage);
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var myName = "Ted"
+var myName = "Ted";
 
-sayHello(myName)
-console.log(sayHello(myName))
+sayHello(myName);
+console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
