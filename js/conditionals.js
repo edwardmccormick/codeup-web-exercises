@@ -46,9 +46,9 @@ console.log(analyzeColor(randomColor))
 
 function analyzeColor(color) {
     switch(color){
-        case "blue" : return "Blue is the color of the sky"
-        case "red" : return "Strawberries are red"
-        default : return "I don't know anything about "+color+"."
+        case "blue" : return "Blue is the color of the sky";
+        case "red" : return "Strawberries are red";
+        default : return "I don't know anything about "+color+".";
 
     }
 }
@@ -134,16 +134,40 @@ var participate = confirm("Would you like to enter a number?")
 
 var number = prompt("Please enter a number")
 
-console.log(typeof number)
+
 
 if (isNaN(parseInt(number))) {alert("I'm sorry, you have to enter a number.")}
 else {
     if (number % 2 === 0) {alert("Your number is even.")}
-    else if (number % 2 == 1) {alert("Your number is odd.")}
+    else if (number % 2 == 1 || number %2==-1) {alert("Your number is odd.")}
     else {alert("Not sure what happened, but it wasn't normal.")}
     alert("Your number plus 100 is: " + (parseFloat(number) + parseFloat(100)))
     if (parseFloat(number) > 0) {alert("Your number is positive.")}
     else if (parseFloat(number) < 0) {alert("Your number is negative.")}
     else if (parseFloat(number) == 0) {alert("What, are you trying to break this script by putting zero? LAME!!!")}
-    else {"Something weird happened, sorry."}
+    else {alert("Something weird happened, sorry.")}
 }
+//
+// function wouldYouLikeToPlayAGame(number) {
+//     if (isNaN(parseInt(number))) {
+//         return "I'm sorry, you have to enter a number.
+//     } else {
+//         if (number % 2 === 0) {
+//             alert("Your number is even.")
+//         } else if (number % 2 == 1) {
+//             alert("Your number is odd.")
+//         } else {
+//             alert("Not sure what happened, but it wasn't normal.")
+//         }
+//         alert("Your number plus 100 is: " + (parseFloat(number) + parseFloat(100)))
+//         if (parseFloat(number) > 0) {
+//             alert("Your number is positive.")
+//         } else if (parseFloat(number) < 0) {
+//             alert("Your number is negative.")
+//         } else if (parseFloat(number) == 0) {
+//             alert("What, are you trying to break this script by putting zero? LAME!!!")
+//         } else {
+//             alert("Something weird happened, sorry.")
+//         }
+//     }
+// }
