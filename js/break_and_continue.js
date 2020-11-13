@@ -1,7 +1,8 @@
 var skipNumber = prompt("Please enter an odd number between 1 and 50")
 
-while (skipNumber %2 !== 1 || skipNumber < 0 || skipNumber > 50) {skipNumber = prompt("I'm sorry, your number must be odd and between 1 and 50 - please enter a new a number")}
+while (!isNan(skipNumber) || %2 !== 1 || skipNumber < 0 || skipNumber > 50) {skipNumber = prompt("I'm sorry, your number must be odd and between 1 and 50 - please enter a new a number")}
 
+console.log("The number to skip is: " + skipNumber)
 
 for (var i = 1; i<50; i++) {
     if (i % 2 == 0) {continue}
