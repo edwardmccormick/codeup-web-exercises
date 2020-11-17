@@ -23,7 +23,10 @@
      * accessing each element's index.
      */
 
-    console.log(names[0],names[1],names[2],names[3])
+    console.log(names[0])
+    console.log(names[1])
+    console.log(names[2])
+    console.log(names[3])
 
     /**
      * TODO:
@@ -40,8 +43,8 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-    names.forEach(function(name) {
-        console.log(name);
+    names.forEach(function(name,i) {
+        console.log(i + " : " + name);
     })
 
     /**
@@ -67,11 +70,11 @@
     }
 
     function third(x) {
-        return x[2];
+        return x[x.length-1];
     }
 
 
 console.log(first([1,2,3]))
 console.log(second([1,2,3]))
-console.log(third([1,2,3]))
+console.log(third([1,2,3,4,5]))
 })();
