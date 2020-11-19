@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register with Us</title>
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+<img class="logo" src="img/veridian+logo.jpg" alt="The Veridian Logo">
+<h1>Register with Veridian</h1>
+<form method="POST" action="https://request-inspector.glitch.me/">
+<!--    <form method="post" action="https://www.elformo.com/forms/b3b99782-205d-4fcf-8940-cd92fcde801b">-->
+    <label for="email">Username</label>
+    <input id="email" name="email" type="email" placeholder="sample@veridian.com">
+    <br>
+    Password:
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="password">
+    <i class="far fa-eye" id="togglePassword"></i>
+    <script src="js/forms.js"></script><br>
+    <br>
+    <br>
+    <label for="bio">Biography</label><br>
+    <textarea id="bio" name="bio" cols="80" rows="4">Tell us a little about yourself</textarea><br>
+    <br>
+    <label for="source">How did you hear about us?</label>
+    <input type="radio" name="source" value="billboard">Billboard
+    <input type="radio" name="source" value="radio">Radio Advertisement
+    <input type="radio" name="source" value="internet">Internet Advertisement/Website
+    <input type="radio" name="source" value="other">Other<br>
+    <br>
+    Select the internet browser you primarily use: <select id="browser" name="browser">
+        <option value="chrome">Google Chrome</option>
+        <option value="edge">Microsoft Edge</option>
+        <option value="firefox">Mozilla Firefox</option>
+        <option value="explorer">Microsoft Explorer</option>
+        <option value="safari">Apple Safari</option>
+        <option value="other">Other/Not Listed Above</option>
+</select><br>
+    <br>
+    <button class="button"><span>Register</span></button>
+</form>
+
+</body>
+<!--When I remove the 'name' element it breaks the rest of that line of code - i.e. my biography text area has the columns and rows that I had specified appear in addition to the "Tell us a little about yourself" text.
+
+On the password element, everything after the password "type="password" value="*****">" appears outside of the password box. Basically it breaks things. Neat trick though-->
+</html>
