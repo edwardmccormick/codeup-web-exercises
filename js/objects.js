@@ -16,6 +16,11 @@
     person.firstName = "Ted"
     person.lastName = "McCormick"
 
+    var person2 = {
+        firstName: "David",
+        lastName: "Stephens"
+    }
+
     console.log(person.firstName) // "Ted"
     console.log(person.lastName) // "McCormick"
 
@@ -68,7 +73,7 @@
 shoppers.forEach(function(name, index) {
         console.log (shoppers[index].name + " has purchased $" + shoppers[index].amount);
         if(shoppers[index].amount<200) {console.log("Unfortunately, you didn't spend enough to earn a discount. Your bill is $"+shoppers[index].amount)}
-        else {console.log("Congratulations, you've earned a 12% discount."); console.log("After your discount was applied, your bill is $" + (shoppers[index].amount-(shoppers[index].amount*.12)))}
+        else {console.log("Congratulations, you've earned a 12% discount."); console.log("After your discount was applied, your bill is $" + (shoppers[index].amount-(shoppers[index].amount*.12)).toFixed(2))}
     })
 
 
@@ -77,7 +82,7 @@ shoppers.forEach(function(name, index) {
     // if(this.amount<200) {console.log("Unfortunately, you didn't spend enough to earn a discount.")}
     // else {console.log("Congratulations, you've earned a 12% discount."); console.log("After your discount was applied, your bill is $" (this.amount-(this.amount*.12)))}
 
-
+// shoppers.forEach(function())
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -92,26 +97,26 @@ shoppers.forEach(function(name, index) {
      * > console.log(books[0].author.lastName) // "Adams"
      */
 var books = [
-        {'title': 'Wereblood', 'author' : {'firstName': 'Eric',
-        'lastName': 'Iverson',
+        {title: 'Wereblood', author : {firstName: 'Eric',
+        lastName: 'Iverson',
     }},
-        {'title': 'The Misplaced Legion', 'author': {'firstName': 'Harry',
-            'lastName': 'Turtledove',
+        {title: 'The Misplaced Legion', author: {firstName: 'Harry',
+            lastName: 'Turtledove',
     }},
-        {'title': 'Hellenic Traders',
-            'author': {
-                'firstName': 'H. N.',
-                'lastName': 'Turteltaub',
+        {title: 'Hellenic Traders',
+            author: {
+                firstName: 'H. N.',
+                lastName: 'Turteltaub',
             }},
-        {'title': 'Days of Infamy',
-            'author': {
-                'firstName': 'Harry',
-                'lastName': 'Turtledove',
+        {title: 'Days of Infamy',
+            author: {
+                firstName: 'Harry',
+                lastName: 'Turtledove',
             }},
-        {'title': "Hitler's War",
-            'author': {
-                'firstName': 'Harry',
-                'lastName': 'Turtledove',
+        {title: "Hitler's War",
+            author: {
+                firstName: 'Harry',
+                lastName: 'Turtledove',
             }}]
 
 
@@ -158,6 +163,28 @@ for (var i = 0; i<books.length; i++) {
     console.log("-----------")
 }
 
-    var books2 = [{title: "The Hobbit",
-        author: {firstName: "J.R.R.", lastName: "Tolkien"}},
-        {title: "Frankenstein", author: {firstName: "Mary", lastname: "Shelly"}}]
+function createBook (firstName,lastName,title,booksArr) {
+    var obj = {
+        title: title,
+        author: {
+            firstName: firstName,
+            lastName: lastName,
+
+        }
+    };
+    booksArr.push(obj);
+    return booksArr
+}
+
+// books.forEach(function (book) {
+//     console.log(book);
+// })
+
+    function showBookInfo(book) {
+    var str = "Title: " + book.title + "\n";
+        str +=  "Author: " + book.author.firstName + " " + book.author.lastName
+    return str
+}
+books.forEach(function(book, index) {
+    console.log("Book #" + (index+1) + "\n" +showBookInfo(book));
+})
