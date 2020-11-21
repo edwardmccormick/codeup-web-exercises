@@ -1,4 +1,70 @@
-.fancy-header {
-    color: purple;
-    text-decoration: underline;
+body {
+    background-image: url("../img/blue abstract background.jpg");
+    background-repeat: repeat-x;
+    /*background-repeat: round;*/
+    background-color: #c9cdbc;
+    font-family: 'Roboto';
+
 }
+
+h1 {
+    color: #26566c;
+    text-decoration-line: underline;
+    text-align: center;
+    font-family: 'Goldman';
+    font-weight: lighter;
+    mix-blend-mode: difference;
+}
+
+h3 {
+    color: #26566c;
+    text-decoration-line: underline;
+    font-family: 'Goldman';
+}
+
+ul {
+    list-style: circle;
+}
+
+th {
+    text-align: left;
+}
+
+table {
+    border-spacing: 50px 10px;
+}
+a {
+position: relative;
+}
+
+a:link {
+    color: #735f3d;
+}
+
+a:visited {
+    color: #c9cdbc;
+}
+
+a:hover {
+    color: #170312;
+    bottom: 2px
+}
+
+a:active {
+    /*background-color:#293241;*/
+    top: 2px
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+}
+
+/*.fancy-header {*/
+/*    color: purple;*/
+/*    text-decoration: underline;*/
+/*}*/
+
