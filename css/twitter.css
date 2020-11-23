@@ -29,6 +29,7 @@ a {
     background: var(--light-bg);
     width: 100%;
     position: fixed;
+    z-index: 1000;
 }
 
 .nav {
@@ -37,11 +38,15 @@ a {
     margin: 0;
 
     }
+
+.nav-item {
+    display: inline-block;
+    padding: 1.5em;
+}
+
 .nav-link {
     float: left;
     clear: right;
-    display: inline-block;
-    padding: 1.5em;
     color: var(--main-link-color);
     font-weight: bold;
     text-decoration: none;
@@ -52,11 +57,19 @@ a {
 .profile {
     background: var(--light-bg);
     height: 80px;
-    margin-bottom: 2em;
+    position: relative;
+
 }
 .profile-form{
-    alignment: center;
+    float: right;
+    line-height: 80px;
 }
+
+.profile-image {
+     position: absolute;
+     top: -28px;
+ }
+
 .btn {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
@@ -67,7 +80,6 @@ a {
 
 }
 .btn-large {
-    position: relative;
     font-size: 1.3em;
     padding: 10px;
     top: 16px;
@@ -82,11 +94,8 @@ a {
 .text-muted {
     color: var(--main-link-color);
 }
-.profile-image {
-    position: absolute;
-    top: 240px;
-}
 
+/*This is basically because we want three columns - the middle column (Timeline) should be able to be 50%, the outer two should be 25%*/
 .profile-details {
     float: left;
     position: relative;
@@ -106,8 +115,9 @@ float: left;
     width: calc(25% - 1em);
 }
 
-#container {
-    padding: 2em;
+.container {
+    margin-top: 2em;
+    /*padding: 2em;*/
 }
 
 .media {
@@ -115,7 +125,7 @@ float: left;
     padding: .5em;
     background-color: var(--light-bg);
     border-bottom: 1px solid var(--separator-color);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .media-image {
@@ -130,5 +140,10 @@ float: left;
 }
 
 .profile-items {
-    list-style-type: none;
+    list-style: none;
+    padding: 0px;
+}
+
+.profile-entry {
+    margin: .5em;
 }
