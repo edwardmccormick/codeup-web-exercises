@@ -1,0 +1,45 @@
+a {
+    display: inline-block;
+    color: black;
+    text-decoration-line: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: blue;
+}
+
+.Logo {
+    font-size: 3em;
+    padding: .2em;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.Navbar {
+    display: flex;
+    background-color: lightgray;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    /*padding: 1em;*/
+    font-family: 'Work Sans', sans-serif;
+}
+
+.clickable {
+    display: flex;
+    width: 20%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Item3 {
+    width: 15%
+}
+
+div {
+    padding: 0 10px;
+    box-sizing: border-box;
+    /*flex-grow: 1;*/
+}
