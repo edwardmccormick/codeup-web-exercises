@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/order-pizza.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <title>Pizza World Order Form!</title>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pizza World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button> </form></li>
+            </ul>
+        <a class="nav-link" href="#">Sign up<span class="sr-only">(current)</span></a>
+    </div>
+</nav>
+<div class="jumbotron d-none d-md-block">
+    <h1 class="display-4">Welcome to Pizza World!</h1>
+
+</div>
+
+<h2>Hello, world!</h2>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item"> <a class="nav-link active" href="#nav-size"><span class="badge badge-secondary">1</span> Size and Crust</a></li>
+    <li class="nav-item"> <a class="nav-link" href="#nav-cheese"><span class="badge badge-secondary">2</span> Cheese and Sauce</a></li>
+    <li class="nav-item"> <a class="nav-link" href="#nav-topping"><span class="badge badge-secondary">3</span> Toppings</a></li>
+</ul>
+
+<div class="tab-content" id="nav-tabContent">
+
+<div class="tab-pane fade show active" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
+    <div class="card w-75">
+    <div class="card-header text-white bg-primary mb-3">Choose size and crust</div>
+    <div class="card-body">
+<div class="card bg-light mb-3 w-100" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Hand tossed</h5>
+     </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+            <li class="list-group-item">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="crust" id="crust" value="htsmall" checked>
+            <label class="form-check-label" for="crust">
+            Small (10")
+            </label>
+        </div></li>
+        <li class="list-group-item">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="crust" id="crust" value="htmedium">
+                <label class="form-check-label" for="crust">
+                    Medium (12")
+                </label>
+            </div>
+
+        </li>
+    </ul>
+
+</div>
+
+<div class="card bg-light mb-3 w-100" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Crispy thin</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+        <li class="list-group-item">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctmedium" checked>
+                <label class="form-check-label" for="crust">
+                    Medium (12")
+                </label>
+            </div></li>
+        <li class="list-group-item">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctlarge">
+                <label class="form-check-label" for="crust">
+                    Large (14")
+                </label>
+            </div>
+
+        </li>
+    </ul>
+
+</div>
+<div class="text-right">
+    <a href="#" class="btn btn-primary text-right">Next Step ></a></div>
+    </div>
+</div>
+</div>
+<div class="tab-pane fade show active" id="nav-cheese" role="tabpanel" aria-labelledby="nav-cheese-tab">
+
+    <div class="card w-75">
+        <div class="card-header text-white bg-primary mb-3">Choose cheese and sauce</div>
+        <div class="card-body">
+            <div class="card bg-light mb-3 w-100" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Cheese</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">How much?</li>
+                </ul>
+                        <form class="form-inline">
+                            <select class="custom-select my-1 mr-sm-2" id="Cheese">
+                                <option selected>Choose...</option>
+                                <option value="1">Light</option>
+                                <option value="2">Regular</option>
+                                <option value="3">Extra</option>
+                                <option value="4">All the cheese</option>
+                            </select>
+                        </form>
+                    </div>
+            </div>
+
+            <div class="card bg-light mb-3 w-100" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Sauce</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">What Type?</li>
+                    <form class="form-inline">
+                        <select class="custom-select my-1 mr-sm-2" id="SauceType">
+                            <option selected>Choose...</option>
+                            <option value="1">Robust Inspired Tomato Sauce</option>
+                            <option value="2">Alfredo</option>
+                            <option value="3">Barbecue</option>
+                        </select>
+                    </form>
+                    <li class="list-group-item">How Much?</li>
+                    <form class="form-inline">
+                        <select class="custom-select my-1 mr-sm-2" id="SauceHowMuch">
+                            <option selected>Choose...</option>
+                            <option value="1">Light</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Extra</option>
+                            <option value="4">You see that 50 gallon drum? Open 'er up.</option>
+                        </select>
+                    </form>
+                </ul>
+
+            </div>
+            <div class="text-right">
+                <a href="#" class="btn btn-primary text-right"> < Previous Step</a><a href="#" class="btn btn-primary text-right">Next Step ></a></div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade show active" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
+
+        <div class="card w-75">
+            <div class="card-header text-white bg-primary mb-3">Choose toppings</div>
+            <div class="card-body">
+                <div class="card bg-light mb-3 w-100" style="width: 18rem;">
+
+                        <div class="col-sm-2">Choose Meats</div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Beef
+                                    </label>
+                                </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Ham
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Philly Steak
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Bacon
+                        </label>
+                    </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card bg-light mb-3 w-100" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Crispy thin</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Thing enough for optimum crispy to crunchy ratio.</li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctmedium" checked>
+                                <label class="form-check-label" for="crust">
+                                    Medium (12")
+                                </label>
+                            </div></li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctlarge">
+                                <label class="form-check-label" for="crust">
+                                    Large (14")
+                                </label>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="text-right">
+                    <a href="#" class="btn btn-primary text-right">Next Step ></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
