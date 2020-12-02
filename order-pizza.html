@@ -16,11 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d97a27eb03.js" crossorigin="anonymous"></script>
+    <script src="js/order-pizza.js"></script>
+
     <title>Pizza World Order Form!</title>
+
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light font-weight-bold">
     <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#nav-size">Order Online <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Menu</a>
@@ -38,9 +41,38 @@
 
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button> </form></li>
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search stores near you!</button> </form></li>
             </ul>
-        <a class="nav-link" href="#">Sign up<span class="sr-only">(current)</span></a>
+        <div class="dropdown">
+            <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Sign in</a>
+
+            <div class="dropdown-menu dropdown-menu-lg-right">
+                <form class="px-4 py-3">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+<!--                        <i class="far fa-eye" id="togglePassword"></i>-->
+
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                            <label class="form-check-label" for="dropdownCheck">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">New around here? Sign up</a>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="jumbotron d-none d-md-block">
@@ -48,18 +80,18 @@
 
 </div>
 
-<h2>Hello, world!</h2>
-
-<ul class="nav nav-tabs">
-    <li class="nav-item"> <a class="nav-link active" href="#nav-size"><span class="badge badge-secondary">1</span> Size and Crust</a></li>
-    <li class="nav-item"> <a class="nav-link" href="#nav-cheese"><span class="badge badge-secondary">2</span> Cheese and Sauce</a></li>
-    <li class="nav-item"> <a class="nav-link" href="#nav-topping"><span class="badge badge-secondary">3</span> Toppings</a></li>
-</ul>
-
+<h2>Build your own pizza!</h2>
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-size-tab" data-toggle="tab" href="#nav-size" role="tab" aria-controls="nav-size" aria-selected="true"><span class="badge badge-secondary">1</span> Size and Crust</a>
+    <a class="nav-item nav-link" id="nav-cheese-tab" data-toggle="tab" href="#nav-cheese" role="tab" aria-controls="nav-cheese" aria-selected="false"><span class="badge badge-secondary">2</span> Cheese and Sauce</a>
+    <a class="nav-item nav-link" id="nav-topping-tab" data-toggle="tab" href="#nav-topping" role="tab" aria-controls="nav-topping" aria-selected="false"><span class="badge badge-secondary">3</span> Toppings</a>
+    <a class="nav-item nav-link" id="nav-order-tab" data-toggle="tab" href="#nav-order" role="tab" aria-controls="nav-order" aria-selected="false"><span class="badge badge-secondary">4</span> Order</a>
+</div></nav>
 <div class="tab-content" id="nav-tabContent">
 
 <div class="tab-pane fade show active" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
-    <div class="card w-75">
+    <div class="card w-100">
     <div class="card-header text-white bg-primary mb-3">Choose size and crust</div>
     <div class="card-body">
 <div class="card bg-light mb-3 w-100" style="width: 18rem;">
@@ -96,7 +128,7 @@
         <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
         <li class="list-group-item">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctmedium" checked>
+                <input class="form-check-input" type="radio" name="crust" id="crust" value="ctmedium">
                 <label class="form-check-label" for="crust">
                     Medium (12")
                 </label>
@@ -114,11 +146,11 @@
 
 </div>
 <div class="text-right">
-    <a href="#" class="btn btn-primary text-right">Next Step ></a></div>
+    <a href="#nav-cheese" class="btn btn-primary text-right " data-toggle="tab">Next Step ></a></div>
     </div>
 </div>
 </div>
-<div class="tab-pane fade show active" id="nav-cheese" role="tabpanel" aria-labelledby="nav-cheese-tab">
+<div class="tab-pane fade show" id="nav-cheese" role="tabpanel" aria-labelledby="nav-cheese-tab">
 
     <div class="card w-75">
         <div class="card-header text-white bg-primary mb-3">Choose cheese and sauce</div>
@@ -132,15 +164,15 @@
                 </ul>
                         <form class="form-inline">
                             <select class="custom-select my-1 mr-sm-2" id="Cheese">
-                                <option selected>Choose...</option>
-                                <option value="1">Light</option>
-                                <option value="2">Regular</option>
-                                <option value="3">Extra</option>
-                                <option value="4">All the cheese</option>
+<!--                                <option >Choose...</option>-->
+                                <option value="light">Light</option>
+                                <option selected value="regular">Regular</option>
+                                <option value="extra">Extra</option>
+                                <option value="double">All the cheese</option>
                             </select>
                         </form>
                     </div>
-            </div>
+
 
             <div class="card bg-light mb-3 w-100" style="width: 18rem;">
                 <div class="card-body">
@@ -150,31 +182,32 @@
                     <li class="list-group-item">What Type?</li>
                     <form class="form-inline">
                         <select class="custom-select my-1 mr-sm-2" id="SauceType">
-                            <option selected>Choose...</option>
-                            <option value="1">Robust Inspired Tomato Sauce</option>
-                            <option value="2">Alfredo</option>
-                            <option value="3">Barbecue</option>
+<!--                            <option selected>Choose...</option>-->
+                            <option selected value="robust">Robust Inspired Tomato Sauce</option>
+                            <option value="alfredo">Alfredo</option>
+                            <option value="barbecue">Barbecue</option>
                         </select>
                     </form>
                     <li class="list-group-item">How Much?</li>
                     <form class="form-inline">
                         <select class="custom-select my-1 mr-sm-2" id="SauceHowMuch">
-                            <option selected>Choose...</option>
-                            <option value="1">Light</option>
-                            <option value="2">Regular</option>
-                            <option value="3">Extra</option>
-                            <option value="4">You see that 50 gallon drum? Open 'er up.</option>
+<!--                            <option selected>Choose...</option>-->
+                            <option value="light">Light</option>
+                            <option selected value="regular">Regular</option>
+                            <option value="extra">Extra</option>
+                            <option value="double">You see that 50 gallon drum? Open 'er up.</option>
                         </select>
                     </form>
                 </ul>
 
             </div>
             <div class="text-right">
-                <a href="#" class="btn btn-primary text-right"> < Previous Step</a><a href="#" class="btn btn-primary text-right">Next Step ></a></div>
+                <a href="#nav-size" class="btn btn-primary text-right" data-toggle="tab"> < Previous Step</a><a href="#nav-topping" class="btn btn-primary text-right" data-toggle="tab">Next Step ></a></div>
         </div>
     </div>
+</div>
 
-    <div class="tab-pane fade show active" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
+<div class="tab-pane fade show" id="nav-topping" role="tabpanel" aria-labelledby="nav-topping-tab">
 
         <div class="card w-75">
             <div class="card-header text-white bg-primary mb-3">Choose toppings</div>
@@ -184,7 +217,7 @@
                         <li class="list-group-item">Choose meats:</li>
                     </ul>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="beef>
+                                    <input class="form-check-input" type="checkbox" value="" id="beef">
                                     <label class="form-check-label" for="beef">
                                         Beef
                                     </label>
@@ -219,7 +252,7 @@
                 <li class="list-group-item">Choose Non-Meats:</li>
             </ul>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="peppers>
+                <input class="form-check-input" type="checkbox" value="" id="peppers">
                                     <label class="form-check-label" for="peppers">
                 Green Peppers
                 </label>
@@ -246,13 +279,81 @@
 
         </div>
                 <div class="text-right">
-                    <a href="#" class="btn btn-primary text-right">Checkout <i class="fas fa-shopping-cart"></i></a></div>
+                    <a href="#nav-cheese" class="btn btn-primary text-right" data-toggle="tab">< Review your order</a><a href="#nav-order" class="btn btn-primary text-right" data-toggle="tab">Checkout <i class="fas fa-shopping-cart"></i></a></div>
             </div>
         </div>
     </div>
-</div>
+<div class="tab-pane fade show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+    <div class="card w-75">
+        <div class="card-header text-white bg-primary mb-3">Complete your order! </div>
+        <div class="card-body">
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">First name</label>
+                        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Your first name is required.</div>
 
-</div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom02">Last name</label>
+                        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Your last name is required.</div>
 
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustomUsername">Credit Card Number</label>
+                        <div class="input-group">
+
+                            <input type="number" class="form-control" id="validationCustomUsername" placeholder="Credit Card" aria-describedby="inputGroupPrepend" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please input your credit card number.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom03">City</label>
+                        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a valid city.</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom04">State</label>
+                        <input type="text" maxlength="2" class="form-control" id="validationCustom04" placeholder="State" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom05">Zip</label>
+                        <input type="number" minlength="5" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions
+                        </label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary text-right" type="submit">Submit form</button>
+            </form>
+</div>
+    </div>
+</div>
+</div>
 </body>
 </html>
