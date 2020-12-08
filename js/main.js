@@ -12,5 +12,5 @@
 // var confirmed = confirm("Are you sure you want to do xyz?")
 // console.log(confirmed);
 
-var userInput = prompt('Please type something:');
-console.log('The user entered: ' + userInput);
+// var userInput = prompt('Please type something:');
+// console.log('The user entered: ' + userInput);

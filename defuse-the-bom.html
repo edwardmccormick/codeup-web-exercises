@@ -60,13 +60,15 @@ var myVar = setInterval(updateTimer,1000)
 
     var ii = 0
 
+var title
+
     function iWantToDoItAll() {
         defuseTheBOM();
         if (ii<1) {alert("Whooooooooo, thank goodness, we're safe now.")} else {alert("You did awesome, skipper, keep patting yourself on the back")}
         // document.body.innerHTML = "<h1>HOORAY YOU'VE SAVED US</h1><br><br><h2>Man that was close</h2>";
         document.getElementById('message').innerHTML = "<h2>I think we're safe!</h2>";
         document.getElementById('defuser').innerHTML = "Here's a button for you, hero";
-        document.head.title = "Well that was close.";
+        document.getElementsByTagName("title").outerHTML = "We survived!";
         ii++;
     }
 // })();
