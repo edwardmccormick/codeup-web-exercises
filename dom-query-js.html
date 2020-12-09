@@ -25,48 +25,83 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="button1" class="button button1">JavaScript is Cool</button>
+<button id="button2" class="button button2">subHeader turns Blue</button>
+<button id="button3" class="button button3">Turn the list odds gray</button>
+<button id="button4" class="button button4">Mission Accomplish</button>
+<button id="button5" class="button button5">Alert</button>
+
+
 <script>
     (function() {
         "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-        var mainHeader = document.getElementById('mainHeader');
+        // // TODO: Uncomment next line and get the main header element by id
+        // var mainHeader = document.getElementById('mainHeader');
+        //
+        // // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        // document.getElementById('main-header').innerHTML = "JavasScript is Cool"
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        document.getElementById('main-header').innerHTML = "JavasScript is Cool"
+    //     // TODO: Uncomment the next line and get the sub header element by id
+    //     var subHeader = document.getElementById("sub-header");
+    //
+    //     // TODO: Set the text color of subHeader to blue
+    // document.getElementById("sub-header").style.color = "blue"
+    //
+    //     // TODO: Uncomment the next line and get all list items
+    //
+    //     var listItems = document.getElementsByTagName("li");
+    //
+    //     // TODO: Set text color on every other list item to grey
+    //     for (var i = 0 ; i < listItems.length ; i += 2 )
+    //         {document.getElementsByTagName("li")[i].style.color = "grey";}
+    //     // {console.log(i)}
+    //
+    //     // document.getElementsByTagName("li")[0].style.color = "grey";
+    //     // document.getElementsByTagName("li")[2].style.color = "grey";
+    //     // document.getElementsByTagName("li")[4].style.color = "grey";
+    //     // listItems.style.color = "purple";
+    //
+    //     // TODO: Set text color of li with dbid = 1 to blue
+    //
+    //     console.log(document.getElementsByTagName("li")[0].getAttribute("data-dbid"));
 
-        // TODO: Uncomment the next line and get the sub header element by id
-        var subHeader = document.getElementById("sub-header");
+        var i = 0
 
-        // TODO: Set the text color of subHeader to blue
-    document.getElementById("sub-header").style.color = "blue"
-        // TODO: Uncomment the next line and get all list items
+        while(i < document.getElementsByTagName("li").length) {if (document.getElementsByTagName("li")[i].getAttribute("data-dbid") == 1) {document.getElementsByTagName("li")[i].style.color = "blue"; i++
+        }}
+    //
+    //     document.getElementsByTagName("li")[0].style.color = "blue";
+    //
+    //     // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+    //     var subParagraphs = document.getElementsByClassName("sub-paragraph");
+    //
+    //     console.log(subParagraphs)
+    //
+    //     // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    //
+    //     document.getElementsByClassName("sub-paragraph")[0].innerHTML = "Mission Accomplished!"
 
-        var listItems = document.getElementsByTagName("li");
+        // var button1 = document.getElementById("button1")
 
-        // TODO: Set text color on every other list item to grey
-        for (var i = 0 ; i < listItems.length ; i += 2 )
+        document.getElementById("button1").addEventListener("click", function() {
+            document.getElementById('main-header').innerHTML = "JavasScript is Cool";})
+
+        document.getElementById("button2").addEventListener("click", function() {
+            document.getElementById("sub-header").style.color = "blue"
+        })
+
+        document.getElementById("button3").addEventListener("click", function() {
+            for (var i = 0 ; i < document.getElementsByTagName("li").length ; i += 2 )
             {document.getElementsByTagName("li")[i].style.color = "grey";}
-        // {console.log(i)}
+        })
 
-        // document.getElementsByTagName("li")[0].style.color = "grey";
-        // document.getElementsByTagName("li")[2].style.color = "grey";
-        // document.getElementsByTagName("li")[4].style.color = "grey";
-        // listItems.style.color = "purple";
+        document.getElementById("button4").addEventListener("click", function() {
+            document.getElementsByClassName("sub-paragraph")[0].innerHTML = "Mission Accomplished!"
+        })
 
-        // TODO: Set text color of li with dbid = 1 to blue
+document.getElementById("button5").addEventListener("click", function() {alert("Hey look, it worked!")})
 
-        console.log(document.getElementsByTagName("li")[0].getAttribute("data-dbid"));
 
-        document.getElementsByTagName("li")[0].style.color = "blue";
-
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByClassName("sub-paragraph");
-
-        console.log(subParagraphs)
-
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-
-        document.getElementsByClassName("sub-paragraph")[0].innerHTML = "Mission Accomplished!"
     })();
 </script>
 </body>

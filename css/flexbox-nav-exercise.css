@@ -1,5 +1,5 @@
 a {
-    display: inline-block;
+    /*display: inline-block;*/
     color: black;
     text-decoration-line: none;
     font-weight: bold;
@@ -9,37 +9,51 @@ a:hover {
     color: blue;
 }
 
-.Logo {
-    font-size: 3em;
-    padding: .2em;
-    font-family: Montserrat;
-    font-weight: bold;
-}
+
 
 .Navbar {
+
     display: flex;
+    flex-direction: row;
     background-color: lightgray;
     width: 100%;
-    box-sizing: border-box;
-    justify-content: space-between;
+    margin: auto;
+    /*box-sizing: border-box;*/
+    justify-content: center;
+    flex-wrap: nowrap;
     /*padding: 1em;*/
     font-family: 'Work Sans', sans-serif;
 }
 
 .clickable {
     display: flex;
-    width: 20%;
-    box-sizing: border-box;
+    width: 40%;
+    /*box-sizing: border-box;*/
     justify-content: space-between;
     align-items: center;
+    max-width: 400px;
+    flex-wrap: wrap;
 }
 
-.Item3 {
-    width: 15%
+.Item2 {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    padding: .2em;
+    font-family: san Serif; "Montserrat";
+    font-weight: bold;
+    width: 20%;
+    min-width: 104px;
 }
+
+/*.Item3 {display: flex;*/
+/*    width: 40%;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 
 div {
     padding: 0 10px;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     /*flex-grow: 1;*/
 }
