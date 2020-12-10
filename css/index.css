@@ -1,0 +1,16 @@
+.Teddy {
+    background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    ),url("../img/teddy-roosevelt.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+
+/*.text {*/
+/*    background: inherit;*/
+/*    background-attachment: fixed;*/
+/*    -webkit-filter: blur(12px);*/
+/*    filter: blur(12px);*/
+/*}*/
