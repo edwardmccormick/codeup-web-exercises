@@ -1,0 +1,24 @@
+.branson {
+    background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    ),url("../img/richardbranson.png");
+    background-position: center;
+    background-size: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+.fa-linkedin {
+    color: #0a66c2
+}
+
+.fa-github-square {
+    color: black;
+}
+
+.fa-laptop-code {
+    color: black
+}
