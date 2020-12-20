@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+
+
+
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<img id="xzybit" src="img/konami_code.jpg">
+
+<iframe style="display:none;" id="contra" src="https://www.retrogames.cc/embed/16841-contra-usa.html" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
+
+
+
+
+
+
+<script src="js/jquery-3.x-git.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+
+    var secret = "3838404037393739666513"; //Konami Code
+    var input = 0
+
+    $(document).keyup(function(e) {
+        input += (e.keyCode).toString();
+        if(input.indexOf(secret) > -1) {
+    $('#contra').css("display", "inline");
+    $('#xzybit').css("display", "none" );
+    $('body').css("background-color", "black")
+        }
+    })
+
+</script>
+</body>
+</html>

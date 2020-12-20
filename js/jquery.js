@@ -1,5 +1,45 @@
-$('li').css('font-size','20px')
+$('h1').hover(
+    // function() {
+    //     console.log("Here it is!")
+    // })
+    function() {
+        $(this).css('background-color', 'blue')
+    },
+    function() {
+        $(this).css('background-color', 'white')
+    }
+)
 
-$('h1, p, li').css('background-color', 'yellow')
+// $('h1').click(css('background-color', 'blue')
 
-alert($('h1').html())
+$('p').dblclick(function() {
+    $(this).css('font-size', '18px')
+})
+
+$('*').hover(
+    // function() {
+    //     console.log("Here it is!")
+    // })
+    function() {
+        $(this).css('color', 'red')
+    },
+    function() {
+        $(this).css('color', 'black')
+    }
+)
+var fourthBestSeller = "<li>Cyberpunk hats! So hot right now</li>"
+$(document).keydown(function(e) {
+    console.log(e.key);
+})
+
+$("body").on("click", "li", function() {
+$("ol").append(fourthBestSeller);
+$("body").off("click");
+});
+
+// $("ol").on("hover", function() {
+//     $("ol").css('background-color','black')},
+//     function () {
+//     $("ol").css('background-color','white')
+//     })
+
