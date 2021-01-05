@@ -1,0 +1,32 @@
+img {
+    width: 200px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 2s linear 300ms, opacity 600ms;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 2s linear 300ms, opacity 600ms;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
+}
