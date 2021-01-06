@@ -30,3 +30,18 @@ img {
 .blue {
     color: blue;
 }
+
+.pictureFrame {
+    border: solid 25px saddlebrown;
+}
+
+.left {
+    order: 1;
+}
+.middle {
+    order: 2;
+}
+
+.right {
+    order: 3;
+}
