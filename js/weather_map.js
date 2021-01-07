@@ -18,8 +18,14 @@ var marker = new mapboxgl.Marker({
     .setLngLat([-98.4916, 29.4252])
     .addTo(map);
 
-var getDataOnMove = () => {
-    marker.on("dragend", function () {
-        var getCoordinates = this.getLngLat();
-    });
+var lnglat
+function onDragEnd() {
+    lnglat = marker.getLngLat();
+    document.getElementById('latitudedisplay').value = lnglat.lat;
+    document.getElementById('longitudedisplay').value = lnglat.lng;
+    map.flyTo({
+        center: [lnglat.lng, lnglat.lat],
+    })
 }
+
+marker.on('dragend', onDragEnd);
