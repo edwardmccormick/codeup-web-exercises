@@ -19,17 +19,34 @@
 
 </head>
 <body>
-<h1>Weathermap API</h1>
-<input type="text" id="locationsearch" placeholder="Type your location here">
+<h1>Weathermap API</h1><h4>This forecast is for: <span id="forecastlocation"></span></h4><br>
+<input type="text" id="locationsearch" placeholder="Type your location here"> <button id="search" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">There were multiple returns that matched your search. Please select from the below: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="searchresults">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
 <input type="number" id="latitudedisplay" disabled>
 <input type="number" id="longitudedisplay" disabled>
 <div class="row">
 <div class="col-1 blank"></div>
-<div id="first" class="col-2"></div>
-<div id="second" class="col-2"></div>
-<div id="third" class="col-2"></div>
-<div id="fourth" class="col-2"></div>
-<div id="fifth" class="col-2"></div>
+<div id="1" class="col-2"></div>
+<div id="2" class="col-2"></div>
+<div id="3" class="col-2"></div>
+<div id="4" class="col-2"></div>
+<div id="5" class="col-2"></div>
 <div class="col-1 blank"></div>
 </div>
 <div id="map"></div>
