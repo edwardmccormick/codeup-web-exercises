@@ -5,17 +5,35 @@
 }
 
 body {
-    background-color: snow;
+    background-color: #cccccc;
 }
 
 .card {
-
+    background-color: #424d5c;
 }
 .icon {
     width: 100px;
 }
 
+.high {
+    color: #ff6666;
+}
 
+.low {
+   /*color: #258383;*/
+   /* color: #627a84;*/
+    color: #8290d9;
+}
+
+ul {
+    background-color: antiquewhite;
+    list-style-type: none;
+}
+
+li:hover {
+    font-weight: bolder;
+    background-color: white;
+}
 
 /*.autocomplete {*/
 /*    !*the container must be positioned relative:*!*/

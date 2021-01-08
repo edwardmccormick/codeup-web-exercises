@@ -25,44 +25,51 @@
 <h1 class="text-center">Weathermap API</h1>
 <div class="p-2 m-2">
 <h4>This forecast is for: <span id="forecastlocation"></span></h4><br>
-<input type="text" id="locationsearch" placeholder="Type your location here"> <button id="search">
+<input type="text" id="locationsearch" placeholder="Type your location here"> <button id="search">Search</button>
+    <!--data-bs-toggle="modal" data-bs-target="#exampleModal"-->
 <!--    <div id="geocoder" class="geocoder"></div>-->
-<!--data-bs-toggle="modal" data-bs-target="#exampleModal"--> Search</button>
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">There were multiple returns that matched your search. Please select from the below: </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="searchresults">
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">There were multiple returns that matched your search. Please select from the below: </h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body" id="searchresults">-->
 
-            </div>
-            <div class="modal-footer">
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
 
-            </div>
-        </div>
-    </div>
-</div>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <input type="text" id="latitudedisplay" disabled>
 <input type="text" id="longitudedisplay" disabled>
 <div class="row">
-<div class="col-lg-1 blank"></div>
-<div id="0" class="col-sm-12 col-md-6 col-lg-2"></div>
-<div id="1" class="col-sm-12 col-md-6 col-lg-2"></div>
-<div id="2" class="col-sm-12 col-md-6 col-lg-2"></div>
-<div id="3" class="col-sm-12 col-md-6 col-lg-2"></div>
-<div id="4" class="col-sm-12 col-md-6 col-lg-2"></div>
-<div id="5" class="col-sm-12 col-md-6 d-lg-none"></div>
-<div id="6" class="col-sm-12 col-md-6 d-lg-none"></div>
-<div class="col-lg-1 blank"></div>
+    <div id="searchdiv" class="col-lg-1 blank m-0"><ul className="list-group list-group-flush">
+    <li id="search0" class="d-none"></li>
+    <li id="search1" class="d-none"></li>
+    <li id="search2" class="d-none"></li>
+    <li id="search3" class="d-none"></li>
+    <li id="search4" class="d-none"></li>
+    </ul></div>
+<div id="0" class="col-sm-12 col-md-6 col-lg-2 text-white"></div>
+<div id="1" class="col-sm-12 col-md-6 col-lg-2 text-white"></div>
+<div id="2" class="col-sm-12 col-md-6 col-lg-2 text-white"></div>
+<div id="3" class="col-sm-12 col-md-6 col-lg-2 text-white"></div>
+<div id="4" class="col-sm-12 col-md-6 col-lg-2 text-white"></div>
+<div id="5" class="col-sm-12 col-md-6 d-lg-none text-white"></div>
+<div id="6" class="col-sm-12 col-md-6 d-lg-none text-white"></div>
+<div id="accordian" class="col-lg-1 blank"></div>
 </div>
 <div id="map"></div>
 </div>
 
 <div id="target"></div>
-
+<ul><li>Just checking if this works k thanks bye.</li></ul>
 
 <!--jquery-->
 <script src="js/jquery-3.x-git.js"></script>
