@@ -10,6 +10,9 @@
 
 <!--    Mapbox-->
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+<!--    Mapbox Geocoder-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet">
+
 <!--    custom css-->
     <link rel="stylesheet" href="css/weather_map.css">
 
@@ -19,8 +22,12 @@
 
 </head>
 <body>
-<h1>Weathermap API</h1><h4>This forecast is for: <span id="forecastlocation"></span></h4><br>
-<input type="text" id="locationsearch" placeholder="Type your location here"> <button id="search" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+<h1 class="text-center">Weathermap API</h1>
+<div class="p-2 m-2">
+<h4>This forecast is for: <span id="forecastlocation"></span></h4><br>
+<input type="text" id="locationsearch" placeholder="Type your location here"> <button id="search">
+<!--    <div id="geocoder" class="geocoder"></div>-->
+<!--data-bs-toggle="modal" data-bs-target="#exampleModal"--> Search</button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -38,19 +45,21 @@
         </div>
     </div>
 </div>
-<input type="number" id="latitudedisplay" disabled>
-<input type="number" id="longitudedisplay" disabled>
+<input type="text" id="latitudedisplay" disabled>
+<input type="text" id="longitudedisplay" disabled>
 <div class="row">
-<div class="col-1 blank"></div>
-<div id="1" class="col-2"></div>
-<div id="2" class="col-2"></div>
-<div id="3" class="col-2"></div>
-<div id="4" class="col-2"></div>
-<div id="5" class="col-2"></div>
-<div class="col-1 blank"></div>
+<div class="col-lg-1 blank"></div>
+<div id="0" class="col-sm-12 col-md-6 col-lg-2"></div>
+<div id="1" class="col-sm-12 col-md-6 col-lg-2"></div>
+<div id="2" class="col-sm-12 col-md-6 col-lg-2"></div>
+<div id="3" class="col-sm-12 col-md-6 col-lg-2"></div>
+<div id="4" class="col-sm-12 col-md-6 col-lg-2"></div>
+<div id="5" class="col-sm-12 col-md-6 d-lg-none"></div>
+<div id="6" class="col-sm-12 col-md-6 d-lg-none"></div>
+<div class="col-lg-1 blank"></div>
 </div>
 <div id="map"></div>
-
+</div>
 
 <div id="target"></div>
 
@@ -63,6 +72,10 @@
 
 <!--Mapbox JS-->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+
+<!--mapbox geocoder js-->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+
 <!--custom js-->
 <script src="js/keys.js"></script>
 <script src="js/weather_map.js"></script>

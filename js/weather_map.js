@@ -24,8 +24,8 @@ var weatherBulk
 
 function onDragEnd() {
     lnglat = marker.getLngLat();
-    document.getElementById('latitudedisplay').value = lnglat.lat;
-    document.getElementById('longitudedisplay').value = lnglat.lng;
+    latDisplay();
+    longDisplay();
     map.flyTo({
         center: [lnglat.lng, lnglat.lat],
     })
@@ -74,12 +74,21 @@ function direction(x) {
     else if (x > 292.5 && x < 337.5) {return "NorthWest"}
 }
 
+function todayOrTomorrow(x) {
+    if (x == 0 ) {return "Today"}
+    if (x == 1) {return "Tomorrow"}
+    else {return ""}
+}
+
 function renderForecast() {
     var html
-    for (var i = 0; i <= 5; i++) {
-
+    for (var i = 0; i <= 6; i++) {
+        console.log(i)
+    var date = new Date(weatherBulk.daily[i].dt * 1000).toDateString().slice(0,10)
+    var today = todayOrTomorrow(i)
         html = '<div class="card">'
-        html += '<h5 class="text-center">' + weatherBulk.daily[i].weather[0].main + '</h5>'
+        html += '<h5 class="text-center">' + today + '<br>'
+        html += ''+ date + '<br>' + weatherBulk.daily[i].weather[0].main + '</h5>'
         html += '<img src="http://openweathermap.org/img/wn/' + weatherBulk.daily[i].weather[0].icon + '@2x.png" class="card-img-top icon mx-auto">'
         html += '<div class="card-body text-center"> High: ' + weatherBulk.daily[i].temp.max + '°F feels like: ' + weatherBulk.daily[i].feels_like.eve +'°F<br>Low : ' + weatherBulk.daily[i].temp.min + '°F feels like: ' + weatherBulk.daily[i].feels_like.morn +'°F'
         html += '<p class="card-text">Humidity: ' + weatherBulk.daily[i].humidity + '%. <br>' +
@@ -90,8 +99,29 @@ function renderForecast() {
     }
 }
 
-$('#search').click(forwardGeocoding())
+$('#search').click(function(e) {
+    e.preventDefault();
+    forwardGeocoding();
+    console.log("click is working!")
+})
 
+$('#locationsearch').keypress(function(e) {
+    if(e.keyCode == 13) {
+    forwardGeocoding();
+    }
+    // console.log(e)
+//    This is to catch the keycode
+})
+
+function latDisplay() {
+    if (lnglat.lat < 0) {document.getElementById('latitudedisplay').value = -lnglat.lat + "°N"}
+    else {document.getElementById('latitudedisplay').value = lnglat.lat + "°N"}
+}
+
+function longDisplay() {
+    if (lnglat.lng < 0) {$('#longitudedisplay').val(-lnglat.lng + "°W")}
+    else ($('#longitudedisplay').val(lnglat.lng + "°E"))
+}
 
 var locationName
 
@@ -105,6 +135,7 @@ $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" +lnglat.lng+","+lngla
 })
 }
 var searchResults
+
 function forwardGeocoding () {
     var input = [lnglat.lng, lnglat.lat]
     var html
@@ -122,6 +153,152 @@ function forwardGeocoding () {
 // html += '</select>'
 //     $('#searchresults').html(html)
 // html +=
+lnglat.lng = data.features[0].center[0]
+lnglat.lat = data.features[0].center[1]
 
+        marker.setLngLat([lnglat.lng, lnglat.lat])
+
+        map.flyTo({center: [lnglat.lng, lnglat.lat]})
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: lnglat.lat,
+            lon: lnglat.lng,
+            units: 'imperial',
+            exclude: 'minutely,hourly'
+        }).done(function(data) {
+            console.log(data);
+            weatherBulk = data;
+            renderForecast();
+            reverseGeocoding();
+        })
+latDisplay();
+    longDisplay();
     })
 }
+
+// $('#locationsearch').keypress(searchReturn())
+
+// $('locationsearch').keydown(function (e) {
+//     console.log(e + "I'm firing from keydown and that was the event");San
+// })
+
+function searchReturn () {
+    var input = [lnglat.lng, lnglat.lat]
+    var html
+    $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + $('#locationsearch').val() +".json", {
+        access_token: mapBoxToken,
+        proximity: input,
+        limit: 5,
+    }).done(function(data) {
+        searchResults = []
+    for (var i = 0 ; i< data.features.length; i++) {searchResults.push(data.features[i].place_name)}
+    })
+}
+
+// var geocoder = new MapboxGeocoder({
+//     accessToken: mapboxgl.accessToken,
+//     mapboxgl: mapboxgl
+// });
+//
+// document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+
+//
+// function autocomplete(inp, arr) {
+//     /*the autocomplete function takes two arguments,
+//     the text field element and an array of possible autocompleted values:*/
+//     var currentFocus;
+//     /*execute a function when someone writes in the text field:*/
+//     inp.addEventListener("input", function(e) {
+//         var a, b, i, val = this.value;
+//         /*close any already open lists of autocompleted values*/
+//         closeAllLists();
+//         if (!val) { return false;}
+//         currentFocus = -1;
+//         /*create a DIV element that will contain the items (values):*/
+//         a = document.createElement("DIV");
+//         a.setAttribute("id", this.id + "autocomplete-list");
+//         a.setAttribute("class", "autocomplete-items");
+//         /*append the DIV element as a child of the autocomplete container:*/
+//         this.parentNode.appendChild(a);
+//         /*for each item in the array...*/
+//         for (i = 0; i < arr.length; i++) {
+//             /*check if the item starts with the same letters as the text field value:*/
+//             if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+//                 /*create a DIV element for each matching element:*/
+//                 b = document.createElement("DIV");
+//                 /*make the matching letters bold:*/
+//                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+//                 b.innerHTML += arr[i].substr(val.length);
+//                 /*insert a input field that will hold the current array item's value:*/
+//                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+//                 /*execute a function when someone clicks on the item value (DIV element):*/
+//                 b.addEventListener("click", function(e) {
+//                     /*insert the value for the autocomplete text field:*/
+//                     inp.value = this.getElementsByTagName("input")[0].value;
+//                     /*close the list of autocompleted values,
+//                     (or any other open lists of autocompleted values:*/
+//                     closeAllLists();
+//                 });
+//                 a.appendChild(b);
+//             }
+//         }
+//     });
+//     /*execute a function presses a key on the keyboard:*/
+//     inp.addEventListener("keydown", function(e) {
+//         var x = document.getElementById(this.id + "autocomplete-list");
+//         if (x) x = x.getElementsByTagName("div");
+//         if (e.keyCode == 40) {
+//             /*If the arrow DOWN key is pressed,
+//             increase the currentFocus variable:*/
+//             currentFocus++;
+//             /*and and make the current item more visible:*/
+//             addActive(x);
+//         } else if (e.keyCode == 38) { //up
+//             /*If the arrow UP key is pressed,
+//             decrease the currentFocus variable:*/
+//             currentFocus--;
+//             /*and and make the current item more visible:*/
+//             addActive(x);
+//         } else if (e.keyCode == 13) {
+//             /*If the ENTER key is pressed, prevent the form from being submitted,*/
+//             e.preventDefault();
+//             if (currentFocus > -1) {
+//                 /*and simulate a click on the "active" item:*/
+//                 if (x) x[currentFocus].click();
+//             }
+//         }
+//     });
+//     function addActive(x) {
+//         /*a function to classify an item as "active":*/
+//         if (!x) return false;
+//         /*start by removing the "active" class on all items:*/
+//         removeActive(x);
+//         if (currentFocus >= x.length) currentFocus = 0;
+//         if (currentFocus < 0) currentFocus = (x.length - 1);
+//         /*add class "autocomplete-active":*/
+//         x[currentFocus].classList.add("autocomplete-active");
+//     }
+//     function removeActive(x) {
+//         /*a function to remove the "active" class from all autocomplete items:*/
+//         for (var i = 0; i < x.length; i++) {
+//             x[i].classList.remove("autocomplete-active");
+//         }
+//     }
+//     function closeAllLists(elmnt) {
+//         /*close all autocomplete lists in the document,
+//         except the one passed as an argument:*/
+//         var x = document.getElementsByClassName("autocomplete-items");
+//         for (var i = 0; i < x.length; i++) {
+//             if (elmnt != x[i] && elmnt != inp) {
+//                 x[i].parentNode.removeChild(x[i]);
+//             }
+//         }
+//     }
+//     /*execute a function when someone clicks in the document:*/
+//     document.addEventListener("click", function (e) {
+//         closeAllLists(e.target);
+//     });
+// }
+//
+// autocomplete(document.getElementById('locationsearch'), searchResults)
