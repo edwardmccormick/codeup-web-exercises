@@ -209,7 +209,7 @@ $('#locationsearch').keydown(function () {
         // html += '</ul>'
         // $('#searchtarget').html(html)
     } else {
-        $('li').addClass('d-none')
+        $('#searchdiv').children().addClass('d-none')
     }
 })
 
@@ -218,6 +218,12 @@ $('#locationsearch').focus(function () {
     $('.blank').removeClass('col-lg-1')
     $('#accordian').addClass('d-none')
     $('#searchdiv').addClass('col-lg-2')
+})
+
+$('#locationsearch, #searchdiv').focusout(function () {
+    $('.blank').addClass('col-lg-1')
+    $('#accordian').removeClass('d-none')
+    $('#searchdiv').removeClass('col-lg-2')
 })
 // this worked pretty well, but messed with the 'click' function below, so I had to scrap it.
 //     .focusout(function () {
@@ -228,7 +234,7 @@ $('#locationsearch').focus(function () {
 
 
 //This function drives the 'click' on the homebrewed autocomplete search
-$('ul').children().click(function() {
+$('#searchdiv').children().click(function() {
     var input = [lnglat.lng, lnglat.lat]
     var number = $(this).attr('id').toString().slice(6,7)
     $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + $('#locationsearch').val() +".json", {
@@ -257,7 +263,7 @@ latDisplay();
 longDisplay();
 })
 
-    $('li').addClass('d-none')
+    $('#searchdiv').children().addClass('d-none')
 
 })
 

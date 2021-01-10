@@ -25,12 +25,11 @@ body {
     color: #8290d9;
 }
 
-ul {
+#searchdiv>div {
     background-color: antiquewhite;
-    list-style-type: none;
 }
 
-li:hover {
+#searchdiv>div:hover {
     font-weight: bolder;
     background-color: white;
 }
