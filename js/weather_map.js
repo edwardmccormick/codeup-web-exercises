@@ -8,6 +8,13 @@ var map = new mapboxgl.Map({
     center: [-98.4916, 29.4252],
     zoom: 11,
 });
+
+var daymap = new mapboxgl.Map({
+    container: 'daymap',
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    center: [-98.4916, 29.4252],
+    zoom: 11,
+});
 //starting location, and it also happens to be the global variable for passing lat/longs back and forth between the APIs
 var lnglat = {lat:29.4252, lng:-98.4916}
 
@@ -18,7 +25,12 @@ var marker = new mapboxgl.Marker({
     .setLngLat([lnglat.lng, lnglat.lat])
     .addTo(map);
 
-var markerSearch
+var daymarker = new mapboxgl.Marker({
+    draggable: true,
+    color: '#ffffff'
+})
+    .setLngLat([lnglat.lng, lnglat.lat])
+    .addTo(daymap);
 
 var weatherBulk
 
@@ -43,10 +55,33 @@ function onDragEnd() {
         reverseGeocoding();
     })
 }
+
+function dayonDragEnd() {
+    lnglat = daymarker.getLngLat();
+    latDisplay();
+    longDisplay();
+    daymap.flyTo({
+        center: [lnglat.lng, lnglat.lat],
+    })
+    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+        APPID: OPEN_WEATHER_APPID,
+        lat: lnglat.lat,
+        lon: lnglat.lng,
+        units: 'imperial',
+        exclude: 'minutely,hourly'
+    }).done(function(data) {
+        weatherBulk = data;
+        renderForecast();
+        reverseGeocoding();
+    })
+}
+
 //call the function once in order to populate all the fields on page load
 onDragEnd()
 // drag functionality
 marker.on('dragend', onDragEnd);
+
+daymarker.on('dragend', dayonDragEnd);
 
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
@@ -115,12 +150,15 @@ function renderForecast() {
 $('#search').click(function(e) {
     e.preventDefault();
     forwardGeocoding();
+    $('#searchdiv').children().addClass('d-none')
+    $('#locationsearch').val("")
 })
 
 //It also does it if you hit enter in the search bar.
 $('#locationsearch').keypress(function(e) {
     if(e.keyCode == 13) {
     forwardGeocoding();
+    $('#searchdiv').children().addClass('d-none').val("")
     }
     // console.log(e)
 //    This is to catch the keycode
@@ -160,7 +198,7 @@ function forwardGeocoding () {
     $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + $('#locationsearch').val() +".json", {
         access_token: mapBoxToken,
         proximity: input,
-        limit: 10,
+        limit: 5,
     }).done(function(data) {
 //This was part of an aborted attempt to build the reversegeocode into the regular geocode
 //             searchResults = data
@@ -176,8 +214,10 @@ lnglat.lng = data.features[0].center[0]
 lnglat.lat = data.features[0].center[1]
         //THis pushes the marker to the new location
         marker.setLngLat([lnglat.lng, lnglat.lat])
+        daymarker.setLngLat([lnglat.lng, lnglat.lat])
         //This centers the map
         map.flyTo({center: [lnglat.lng, lnglat.lat]})
+        daymap.flyTo({center: [lnglat.lng, lnglat.lat]})
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_APPID,
             lat: lnglat.lat,
@@ -186,6 +226,7 @@ lnglat.lat = data.features[0].center[1]
             exclude: 'minutely,hourly'
         }).done(function(data) {
             //Calls the weather data, renders a new forecast, reverseGeocodes where we landed
+            console.log(data)
             weatherBulk = data;
             renderForecast();
             reverseGeocoding();
@@ -193,6 +234,10 @@ lnglat.lat = data.features[0].center[1]
 //        Updates the Lat/Long blanks to the new location
 latDisplay();
     longDisplay();
+        $('#searchdiv').children().addClass('d-none')
+        $('.blank').addClass('col-lg-1')
+        $('#accordian').removeClass('d-none')
+        $('#searchdiv').removeClass('col-lg-2')
     })
 }
 //This is the driving factor in allowing me to have an autocomplete search. It calls a function to search the API, then displayes the results in a div underneath the search bar.
@@ -220,11 +265,11 @@ $('#locationsearch').focus(function () {
     $('#searchdiv').addClass('col-lg-2')
 })
 
-$('#locationsearch, #searchdiv').focusout(function () {
-    $('.blank').addClass('col-lg-1')
-    $('#accordian').removeClass('d-none')
-    $('#searchdiv').removeClass('col-lg-2')
-})
+// $('#locationsearch, #searchdiv').focusout(function () {
+//     $('.blank').addClass('col-lg-1')
+//     $('#accordian').removeClass('d-none')
+//     $('#searchdiv').removeClass('col-lg-2')
+// })
 // this worked pretty well, but messed with the 'click' function below, so I had to scrap it.
 //     .focusout(function () {
 //     $('.blank').addClass('col-lg-1')
@@ -236,18 +281,21 @@ $('#locationsearch, #searchdiv').focusout(function () {
 //This function drives the 'click' on the homebrewed autocomplete search
 $('#searchdiv').children().click(function() {
     var input = [lnglat.lng, lnglat.lat]
-    var number = $(this).attr('id').toString().slice(6,7)
-    $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + $('#locationsearch').val() +".json", {
+    // var number = $(this).attr('id').toString().slice(6,7)
+    // console.log($(this).text())
+    $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + $(this).text() +".json", {
         access_token: mapBoxToken,
         proximity: input,
         limit: 5,
     }).done(function(data) {
-lnglat.lng = data.features[parseInt(number)].center[0]
-lnglat.lat = data.features[parseInt(number)].center[1]
+lnglat.lng = data.features[parseInt(0)].center[0]
+lnglat.lat = data.features[parseInt(0)].center[1]
 
 marker.setLngLat([lnglat.lng, lnglat.lat])
+daymarker.setLngLat([lnglat.lng, lnglat.lat])
 
 map.flyTo({center: [lnglat.lng, lnglat.lat]})
+daymap.flyTo({center: [lnglat.lng, lnglat.lat]})
 $.get("https://api.openweathermap.org/data/2.5/onecall", {
     APPID: OPEN_WEATHER_APPID,
     lat: lnglat.lat,
@@ -264,6 +312,10 @@ longDisplay();
 })
 
     $('#searchdiv').children().addClass('d-none')
+    $('.blank').addClass('col-lg-1')
+    $('#accordian').removeClass('d-none')
+    $('#searchdiv').removeClass('col-lg-2')
+    $('#locationsearch').val("")
 
 })
 
@@ -318,6 +370,22 @@ geocoder.on('result', function(e) {
         reverseGeocoding();
     })
     // marker2 = markerSearch
+})
+
+var myModal = new bootstrap.Modal(document.getElementById('detailForecast'), {
+    keyboard: true
+})
+
+
+// $('#0, #1, #2, #3, #4, #5, #6').click(function () {
+//     console.log($(this)[0].id.toString())
+// myModal.show()
+// })
+
+$("#darkmodetoggle").change(function() {
+    $("#map").toggleClass("d-none")
+    $("#daymap").toggleClass("d-none")
+    // $(*).toggleClass('text-white')
 })
 
 //10 markerSearch.on('dragend', onDragEnd); mostly because this never worked on reading the second marker.
