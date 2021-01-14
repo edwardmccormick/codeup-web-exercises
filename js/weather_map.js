@@ -383,9 +383,23 @@ var myModal = new bootstrap.Modal(document.getElementById('detailForecast'), {
 // })
 
 $("#darkmodetoggle").change(function() {
-    $("#map").toggleClass("d-none")
-    $("#daymap").toggleClass("d-none")
-    // $(*).toggleClass('text-white')
+    if ($('body').hasClass('night')) {
+        $("#map").toggleClass("d-none")
+        $("#daymap").toggleClass("d-none")
+        $("h1, h4, label, #0, #1, #2, #3, #4, #5, #6").toggleClass('text-white')
+        $('body').toggleClass('night')
+            // .css('background-color','#0078cf')
+            // .css('background-image','url("../img/daytime.jpg")')
+        $('.card').css('background-color', 'rgba(254, 255, 38, .7)')
+
+    }
+    else {
+        $("#map").toggleClass("d-none")
+        $("#daymap").toggleClass("d-none")
+        $("h1, h4, label, #0, #1, #2, #3, #4, #5, #6").toggleClass('text-white')
+        $('body').toggleClass('night')
+
+    }
 })
 
 //10 markerSearch.on('dragend', onDragEnd); mostly because this never worked on reading the second marker.

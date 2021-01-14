@@ -12,10 +12,16 @@
 
 body {
     background-color: #555862;
+    background-image:
+            linear-gradient(
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.2)),
+url("../img/day_sky.jpg");
+    background-position: center;
 }
 
 .card {
-    background-color: #424d5c;
+    background-color: rgba(66, 77, 92, .7);
 }
 .icon {
     width: 100px;
