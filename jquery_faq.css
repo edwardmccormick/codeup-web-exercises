@@ -1,0 +1,35 @@
+.col-4{
+    height: 900px;
+    text-align: center;
+}
+
+.frame{
+    background-size: cover;
+    border: 5px solid red;
+}
+
+.frame1{
+    width: 90%;
+    height: 90%;
+    background-image: url("../img/christmas_tree.jpeg");
+}
+
+.frame2{
+    width: 90%;
+    height: 90%;
+    background-image: url("../img/christmas_wreath.jpg");
+
+}
+
+.frame3{
+    width: 90%;
+    height: 90%;
+    background-image: url("../img/christmas_village.jpeg");
+}
+
+ul{
+    display: none;
+}
+/*.fade{*/
+/*    display: none;*/
+/*}*/

@@ -1,0 +1,21 @@
+.zip-code{
+    margin-left: 15px;
+}
+.jumbotron{
+    background-image: url("../img/pizza.png")
+}
+h1{
+    background: rgba(255,255,255, 0.5);
+    text-align: center;
+    color: Gray;
+}
+.crust{
+    margin: 15px;
+    text-align: left;
+}
+.cheese{
+    padding: 15px;
+}
+container{
+    padding: 10px;
+}

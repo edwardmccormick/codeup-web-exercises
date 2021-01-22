@@ -1,0 +1,31 @@
+body{
+    background-color: cornflowerblue;
+}
+@media screen and (min-width: 320px){
+    body{
+        background-color: mediumpurple;
+    }
+}
+@media screen and (min-width: 480px){
+    body{
+        background-color: darkseagreen;
+    }
+}
+
+@media screen and (min-width: 758px){
+    body{
+        background-color: indianred;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    body{
+        background-color: lightpink;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    body{
+        background-color: orangered;
+    }
+}

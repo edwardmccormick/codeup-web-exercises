@@ -1,0 +1,19 @@
+.resumeHeader {
+    text-align: center;
+}
+.resumeHeader div{
+    margin: 20px 0px;
+}
+h3{
+    color: blue;
+}
+hr{
+    height: 3px;
+    background-color: green;
+}
+body{
+    padding: 5px;
+}
+.resumeBody div{
+    margin: 20px 0px;
+}

@@ -1,0 +1,13 @@
+body{
+    background-color: aquamarine;
+}
+#outerBox{
+    background-color: limegreen;
+    padding: 15px;
+    margin-top: 10px;
+}
+#innerBox{
+    padding: 25px;
+    background-color: indianred;
+    height: 100%;
+}

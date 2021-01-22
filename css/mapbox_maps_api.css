@@ -1,0 +1,16 @@
+.form-inline{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.addressBar{
+    width: 60%;
+}
+.form-control{
+    width: 500px;
+}
+.mb-3{
+    padding: 5px;
+    margin-bottom: 0;
+}
