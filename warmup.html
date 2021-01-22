@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Good Times</title>
+</head>
+<body>
+<h1>jQuery Secret Messages...</h1>
+<h3>After applying the proper jQuery, you should see a hidden message appear below</h3>
+<!-- jQuery is awesome, and it will make easy work of once arduous Javascript tasks -->
+
+<p><span class="extraneous"><span class="vivisect">OKAY OKAY SO HA YEAH IM A COMEDIAN YOU LISTEN TO ME K? GOOD.</span> SO THERE IS THIS MAGICAL ROOM WHERE ONLY I CAN GO IN AND NO, NOT PERRY THE PLATYPUS. OKAY I WENT IN THIS ROOM AND I FOUND OUT I WAS WONDER WOMAN BUT IM ACTUALLY A MAN SO YEAH IM JUST SITTING THERE THEN OUT OF THE BLUE A WALRUS COMES UP TO ME AND SAYS HEY YOU EAT TACOS? </span><span class="vivisect">I SAY YEAH I LOVE TACOS, HE SAYS OH YOUR THE PERSON IVE BEEN LOOKING FOR BUT I HAVE TO LEAVE SO YEAH YOUR MOMS CHEST HAIR OKAY THEN THIS BUTT CHUCKER CAME UP TO ME AND STARTED TO CHUCK MY BUTT AND I SAID HEY STOP CHUCKING MY BUTT SO SHE SAID OH SORRY WRONG BUTT AND SHE </span><span class="heroically">J<span id="lugubrious">Q</span>UERY</span><span class="ellipsis"> LEFT SO YEAH BASICALLY WHAT IM TRYING TO SAY IS THAT IS MY ROOM AND ONLY MY ROOM AND I AM A COMPLETE WEIRDO JUST LIKE YOUR LIVING ROOM FLOOR AND OKAY SO I WAS DRINKING SOME VITAMIN WATER THEN THIS DUDE COMES UP TO ME AND SMACKS THE VITAMIN WATER OUT OF MY HAND AND I WAS LIKE DUDE ARE YOU SERIOUS THAT COSTED MORE THAN A MICROWAVE ON SIMS WHICH IS 800 BUCKS LIKE WHAT I NEED A DUCK YOU GOT HOWARD THE DUCK PLAYING AND IM LIKE MANNN HOW </span><span class="criterion">IS</span><span class="ellipsis"> THIS PG? IF THIS WAS PG IT WOULD BE APPROPRIATE FOR AGES 11 AND DOWN LIKE MAN WOW I CANT BELIEVE MY TOES! OWIE DUCT TAPE REALLY HURTS LIKE UR UNCLE OWCH OOH WOULD YOU LIKE SOME ICE WITH THAT BURNNNNN YEAH SO OKAY BYE NOW I NEVER LIKED YOU ANYWAYS... HEY HEY HEY M&M I WAS WONDERING HOW U WERE I JUST COULDN'T GET THE TIME TO CALL YOU. I WAS THINKING WE HAVE A SLEEPOVER BUT THEN I REMEMBERED THE M&M'S DONT LIKE YOU SO THEY WOULDN'T LET YOU IN THE SHED FOR THE BONFIRE. BUT THEN I REALIZED WE CAN HAVE IT AT YOUR HOUSE CAUSE THEY ARE JUST LIKE GOOGLE HEADS IF YOU KNOW WHAT I MEAN. DO YOU KNOW WHAT I MEAN JELLYBEAN? HEY WHAT ABOUT WE JUST GO BUY SOME RIBBONS AT THE CANDY STORE. I KNOW KNOW YOU MUST THINK IM CRAZY BUT DONT WORRY IM NOT IM CRAZY JEEZ GO AWAY YOU FAT LARD OH THAT REMINDS ME TINA COME GET SOME DINNER YOU FAT LARD OR IT WILL GET COLD COME ON BEFORE I FEED IT TO YOUR MOMS CHEST HAIR. SORRY SORRY THAT WAS SOME WEIRDO NOW BACK TO MY STORY WE SHOULD REALLY GET TOGETHOR CAUSE I HAVE A </span><span class="lackadaisical">AWESOME</span><span class="extraneous"> SECRET TO TELL YOU. ACTUALLY WHY DONT I JUST TELL YOU IT RIGHT NOW I AM SECRETLY A WALRUS. AND YES THAT DOES SOUND LIKE ITS NOT TRUE BUT IT IS I REALLY AM A WALRUS ANYWAY WE REALLY SHOULD GET TOGETHOR.</span></p>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Uncomment the next line, and hide all the elements with a class of "vivisect"
+        $(".vivisect").hide();
+
+        // Uncomment the next line, and bold the text in elements with a class of "heroically"
+        $(".heroically").css("font-weight","bold");
+        // do the same for the classes 'lackadaisical' and 'criterion'
+        $(".lackadaisical, .criterion").css("font-weight","bold");
+
+        // Uncomment the next line, and make the secret message readable by humans by transforming the text of <p> elements to lowercase
+        $("p").css("text-transform","lowercase");
+        // Uncomment the next line, and make the content inside the element with an id of "lugubrious" uppercase
+        $("#lugubrious").css("text-transform","uppercase");
+
+        // Uncomment the next line, and replace the .ellipsis class with " ... "
+        $(".ellipsis").replaceWith(" ... ");
+
+        // Uncomment the next line to hide all extraneous text
+        $(".extraneous").hide();
+
+        // Uncomment the next line of text, and align-center all of the text in all <p> elements
+        $("p").css("text-align", "center");
+
+    });
+</script>
+
+</body>
+</html>

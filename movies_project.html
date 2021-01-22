@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+<!--    Bootstrap 5.0-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<!-- Custom -->
+    <link rel="stylesheet" href="css/movie.css">
+    <title>Movies</title>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><h1> <i class="fas fa-film"></i> Movies</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!-- <a class="navbar-brand" href="#"><h1> <i class="fas fa-film"></i> Movies</h1></a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">Link</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item dropdown">-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    Dropdown-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <div class="dropdown-divider"></div>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--                </ul>-->
+<!--    <div class="text-left d-flex justify-content-end col-4">-->
+<!--        <form class="form-inline my-2 my-lg-0">-->
+<!--            <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<div class="d-flex flex-row justify-content-between">
+<div>Don't see what you're looking for? You can always <button id="add-movie" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#addModal">Add A New Movie!</button></div>
+    <div class="col-6"><h4>Powered by:<a href="https://www.themoviedb.org/"><img data-toggle="tooltip" data-placement="bottom" title="But never endorsed by!" class="d-inline col-8" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg"></a></h4></div>
+</div>
+<section class="loading text-center">
+    <h4>When they said good things were worth waiting for?<br> This is what they meant. Hang tight while we organize our library....</h4>
+<!--    <img src="img/tapes.jpg" width="500px"><br>-->
+
+
+        <img src=img/giphy.webp type="image/webp" title="Your browser does not support webp image types. No big deal, this is just for the loading screen, anyway.">
+    <br>
+    <span class="loading__anim"></span>
+</section>
+
+<div id="target" class="d-flex justify-content-center flex-wrap"></div>
+
+<!--    <div class="m-1">-->
+<!--        <input id="movie-title" type="text" placeholder="title">-->
+<!--        <select id="movie-rating" placeholder="rating">-->
+<!--            <option selected>Pick a rating</option>-->
+<!--            <option>1</option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+<!--        </select>-->
+
+<!--        <br>-->
+<!--        <br>-->
+<!--    </div>-->
+
+
+
+<div id="content">
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade md-effect-1" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center col-10" id="modal-edit-title"></h5>
+                <button id="editCloseTop" type="button" class="btn-close col-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex flex-row justify-content around">
+            <div class="modal-body col-7">
+                <input id="editID" class="d-none" type="number" disabled>
+                <input id="editTitle" type="text" placeholder="Title" data-toggle="tooltip" data-placement="top" title="This is the primary thing the TMDb uses to search.">
+                <input id="editYear" type="number" placeholder="Year" data-toggle="tooltip" data-placement="top" title="Entering the wrong year for a movie will result in poor returns from TMDb">
+<!--                <select id="editRating" placeholder="rating">-->
+<!--                <option selected>Pick a rating</option>-->
+<!--                <option>1</option>-->
+<!--                <option>2</option>-->
+<!--                <option>3</option>-->
+<!--                <option>4</option>-->
+<!--                    <option>5</option></select>-->
+                <input id="editRatingNumber" type="number" placeholder="Stars">
+                <input id="editActors" type="text" placeholder="Actors" class="col-12">
+                <input id="editDirectors" type="text" placeholder="Director" class="col-12">
+                <input id="editGenres" type="text" placeholder="Genres" class="col-12">
+                <textarea id="editPlot" type="textarea" class="col-12" rows="3" placeholder="Plot synopsis">Plot synopsis</textarea>
+                <button id="editCheckOMDB" class="btn btn-primary">Check <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" height="30px"></button>
+                <div id="searchResults"></div>
+            </div>
+            <div class="col-5 column">
+                <div class="col-12 column"><span id="editPoster"></span><input id="editPosterURL" type="text" placeholder="Want a different poster? Paste the URL here!"><button id="previewEditPoster" class="btn btn-primary btn-sm">Preview</button></div>
+                <div id="appendTrailers"></div></div></div> <!--  d-flex flex-row justify-content around-->
+            <div class="modal-footer">
+                <button id="editClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="saveChanges" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade md-effect-1" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center col-10" id="modal-add-title">Thanks for adding to the Database</h5>
+                <button id="addCloseTop" type="button" class="btn-close col-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex flex-row justify-content around">
+                <div class="modal-body col-7">
+                    <input id="addID" class="d-none" type="number" disabled>
+                    <input id="addTitle" type="text" placeholder="Title" data-toggle="tooltip" data-placement="top" title="This is the primary thing the TMDb uses to search.">
+                    <input id="addYear" type="number" placeholder="Year" data-toggle="tooltip" data-placement="top" title="Entering the wrong year for a movie will result in poor returns from TMDb">
+                    <!--                <select id="editRating" placeholder="rating">-->
+                    <!--                <option selected>Pick a rating</option>-->
+                    <!--                <option>1</option>-->
+                    <!--                <option>2</option>-->
+                    <!--                <option>3</option>-->
+                    <!--                <option>4</option>-->
+                    <!--                    <option>5</option></select>-->
+                    <input id="addRatingNumber" type="number" placeholder="Stars">
+                    <input id="addActors" type="text" placeholder="Actors" class="col-12">
+                    <input id="addDirectors" type="text" placeholder="Director" class="col-12">
+                    <input id="addGenres" type="text" placeholder="Genres" class="col-12">
+                    <textarea id="addPlot" type="textarea" class="col-12" rows="3" placeholder="Plot synopsis">Plot synopsis</textarea>
+                    <button id="addCheckOMDB" class="btn btn-primary">Check <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" height="30px"></button>
+                    <div id="addsearchResults"></div>
+                </div>
+                <div class="col-5 column">
+                    <div class="col-12 column"><span id="addPoster"></span><input id="addPosterURL" type="text" placeholder="Want a different poster? Paste the URL here!"><button id="previewAddPoster" class="btn btn-primary btn-sm">Preview</button></div>
+             <!--  d-flex flex-row justify-content around-->
+                <div id="appendTrailersAdd"></div></div></div>
+            <div class="modal-footer">
+                <button id="addClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="addMovie" type="button" class="btn btn-primary" data-bs-dismiss="modal">Add New Movie</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="posterModal" tabindex="-1" aria-labelledby="posterModalLabel" aria-hidden="true">
+    <div class="modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-poster-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="trailerTarget" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="row d-none m-3 p-3">
+    <hr><br><br>
+    <div class="container row">
+    <p class="col-5">"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
+
+    <div class="col-7"><h4>Powered by:<a href="https://www.themoviedb.org/"><img data-toggle="tooltip" data-placement="bottom" title="But never endorsed by!" class="d-inline col-8" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg"></a></h4></div>
+    </div>
+<div class="container"><p>&copy; 2021 by Caleigh Christensen, Joshua Talltree, and Edward C. "Ted" McCormick, all rights reserved.</p>
+
+    <p>All servicemarks, trademarks, and logos are used without permission of the trademark or rights holders. No infringement on any claim of their rights intended.</p>
+
+    <div class="d-flex flex-row justify-content-around">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" height="50px">
+        <img src="img/jquery-vertical.svg" height="50px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/IntelliJ_IDEA_Logo.svg" height="50px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Synology_Logo.svg" height="50px">
+        <img src="img/php-power-white.png" height="50px">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" height="50px">
+    </div></div></div>
+</footer>
+
+
+<!--<div class="modal modal-lg fade md-effect-1" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-xl row">-->
+<!--        <div class="modal-content col-8">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-add-title" id="modal-title">Add a new movie to the database</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <input id="addID" class="d-none" type="number" disabled>-->
+<!--                <input id="addTitle" type="text" placeholder="Title">-->
+<!--                <input id="addYear" type="number" placeholder="Year">-->
+<!--                &lt;!&ndash;                <select id="editRating" placeholder="rating">&ndash;&gt;-->
+<!--                &lt;!&ndash;                <option selected>Pick a rating</option>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <option>1</option>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <option>2</option>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <option>3</option>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <option>4</option>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <option>5</option></select>&ndash;&gt;-->
+<!--                <input id="addRatingNumber" type="number" placeholder="Stars">-->
+<!--                <input id="addActors" type="text" placeholder="Actors" class="col-12">-->
+<!--                <input id="addDirectors" type="text" placeholder="Director" class="col-12">-->
+<!--                <textarea id="addPlot" type="textarea" class="col-12" rows="3" placeholder="Plot synopsis">Plot synopsis</textarea>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                <button id="addMovie" type="button" class="btn btn-primary" data-bs-dismiss="modal">Add New Movie</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-4"></div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--jQuery-->
+<script src="js/jquery-3.5.1.js"></script>
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<!--Custom-->
+<script src="js/keys.js"></script>
+<script src="js/movie.js"></script>
+<script src="https://kit.fontawesome.com/d97a27eb03.js" crossorigin="anonymous"></script>
+</body>
+</html>
